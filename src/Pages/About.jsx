@@ -2,24 +2,24 @@ import React, { useEffect, useState } from 'react'
 import SideNavi from '../Components/Sidenav'
 import { add } from "../store/CartSlice";
 import { useDispatch } from "react-redux";
-//  const products = [
-//    {
-//      id: 1,
-//      name: "Product 1",
-//      description: "This is a great product.",
-//      price: 29.99,
-//      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-//    },
-//    {
-//      id: 2,
-//      name: "Product 2",
-//      description: "This is another great product.",
-//      price: 19.99,
-//      image:
-//        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-//    },
-//    // Add more products as needed
-//  ];
+ const products = [
+   {
+     id: 1,
+     name: "Product 1",
+     description: "This is a great product.",
+     price: 29.99,
+     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+   },
+   {
+     id: 2,
+     name: "Product 2",
+     description: "This is another great product.",
+     price: 19.99,
+     image:
+       "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+   },
+   // Add more products as needed
+ ];
  const About = () => {
 
    const [ product, setProduct ] =useState([])
