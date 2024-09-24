@@ -3,6 +3,7 @@ import "../index.css";
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+
 function SideNavi() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,8 +18,8 @@ function SideNavi() {
 
   return (
     <div className="mr-1 text-blue-400">
-      
-        <CiMenuFries onClick={openNav} /> 
+      <CiMenuFries onClick={openNav} />
+     
       <SideNav isOpen={isOpen} closeNav={closeNav} />
     </div>
   );
@@ -42,13 +43,9 @@ function SideNav({ isOpen, closeNav }) {
         </li>
         <li>
           <NavLink
-            className={({ isActive }) =>
-              ` ${
-                isActive ? " text-red-400  rounded-3xl" : "text-black "
-              }`
-            }
-            to="/About">
-            About
+            to="/Products">
+           
+            Products
           </NavLink>
         </li>
         <li>

@@ -1,64 +1,36 @@
 import React from "react";
-import { CiMenuFries } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 import logo from "../images/logo.png";
 import SideNavi from "./Sidenav";
-
-//import { Link, NavLink } from "react-router-dom";
-
-// this is a navigation bar in which we use react router v60.4 and NAv Link As well
+import { LuShoppingCart } from "react-icons/lu";
+import { useSelector } from "react-redux";
 const Header = () => {
+  const items = useSelector((state) => state.cart);
+  
   return (
     <>
       {/* nav start */}
-      <div className="flex  items-center fixed w-full z-10 h-12  ">
-        <div className="  ml-4 text-xl  text-black">
+      <div className="flex justify-between items-center fixed w-full z-10 h-12  border-2 border-black ">
+        <div className=" menu-icon ml-4 text-xl  text-black">
           <SideNavi />
         </div>
-        <img src={logo} alt="" className="ml-5" />
 
-        {/* <ul className=" flex gap-7  items-center text-[1vw] hidden xl:flex">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `${isActive ? " text-red-400  rounded-3xl" : "tetx-black "}`
-              }>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                `${isActive ? " text-red-400  rounded-3xl" : "tetx-black "}`
-              }
-              to="/About">
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                `${isActive ? " text-red-400  rounded-3xl" : "tetx-black "}`
-              }
-              to="/Services">
-              Service
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                `${isActive ? " text-red-400  rounded-3xl" : "tetx-black "}`
-              }
-              to="/Contact">
-              Contact
-            </NavLink>
-          </li>
-          <li className="bg-cyan-500  text-black px-7 py-2 rounded-3xl">
-            {" "}
-            Become are Valuable Customer
-          </li>
-        </ul> */}
+        <div className="Logo">
+          <img src={logo} alt="" />
+        </div>
+        <div className=" relative cart-icon mr-10 ">
+          <div className="absolute w-4 h-3 right-0  bottom-5 left-4 bg-red-500 rounded text-white  text-[10px]">
+            <span className="ml-0.5 font-thin ">{items.length}</span>
+          </div>
+          <NavLink
+            to="/Cart"
+            // className={({ isActive }) =>
+            //   `${isActive ? "  rounded-3xl" : "tetx-black "}`
+            // }
+          >
+            <LuShoppingCart className="w-6 h-6" />
+          </NavLink>
+        </div>
       </div>
 
       {/* nav End  */}
