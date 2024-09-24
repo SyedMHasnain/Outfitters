@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { remove } from "../Store/cartSlice";
+import { NavLink } from "react-router-dom";
 const Cart = () => {
     const dispatch = useDispatch();
     const Product = useSelector((state)=>state.cart)
@@ -10,7 +11,7 @@ const Cart = () => {
     }; 
   return (
     <>
-      {Product.length < 0 ? (
+      {Product.length > 0 ? (
         <div className="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6">
           <h2 className="text-2xl font-bold text-black mb-4">Shopping Cart</h2>
           <div className="space-y-4">
@@ -57,7 +58,12 @@ const Cart = () => {
       ) : (
         <div className="absolute top-20 left-0 right-3 ">
           <h1 className="text-2xl  font-bold text-black text-center   ">
-            Cart is Empty
+            Cart is Empty 
+            <NavLink to="/Products" className="text-sm text-blue-500">
+              
+              Add Products ...
+          
+            </NavLink>
           </h1>
         </div>
       )}

@@ -15,9 +15,10 @@ const Header = () => {
           <SideNavi />
         </div>
 
-        <div className="Logo">
-          <img src={logo} alt="" />
-        </div>
+        <NavLink to="/" className="Logo">
+          <img src={logo} alt="Logo" />
+        </NavLink>
+
         <div className=" relative cart-icon mr-10 ">
           <div className="absolute w-4 h-3 right-0  bottom-5 left-4 bg-red-500 rounded text-white  text-[10px]">
             <span className="ml-0.5 font-thin ">{items.length}</span>
