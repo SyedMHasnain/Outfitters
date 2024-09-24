@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Home from './Pages/Home';
-import About from './Pages/About';
+
 import Services from './Pages/Services';
 import Contact from './Pages/Contact';
 
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Products from './Pages/Products';
+import Cart from './Pages/Cart';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,16 +21,20 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "about",
-        element: <About />,
-      },
-      {
         path: "contact",
         element: <Contact/>,
       },
       {
         path: "Services",
         element: <Services/>,
+      },
+      {
+        path: "Cart",
+        element: <Cart/>,
+      },
+      {
+        path: "Products",
+        element: <Products/>,
       },
     ],
   },

@@ -20,7 +20,7 @@ import { useDispatch } from "react-redux";
 //    },
 //    // Add more products as needed
 //  ];
- const About = () => {
+ const Products = () => {
 
    const [ product, setProduct ] =useState([])
 
@@ -45,15 +45,15 @@ import { useDispatch } from "react-redux";
   return (
     <>
       <SideNavi />
-      <div className="flex flex-wrap justify-center p-4 gap-10">
+      <div className="flex flex-wrap align-middle w-full  justify-center p-4 gap-10 mt-10">
         {product.map((product) => (
-          <div  key={product.id}className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+          <div  key={product.id}className="max-w-sm rounded  overflow-hidden shadow-lg bg-white">
             <img
-              className="w-40 h-20 object-fit"
+              className="w-30 h-20 object-cover"
               src={product.image}
               alt={product.name}
             />
-            <div className="p-4 gap-10">
+            <div className="p-4">
               <h2 className="font-bold text-xl mb-2">{product.name}</h2>
               <div className="flex justify-between items-center ">
                 <span className="text-lg font-semibold mr-5">
@@ -73,4 +73,4 @@ import { useDispatch } from "react-redux";
   );
 }
 
-export default About
+export default Products
