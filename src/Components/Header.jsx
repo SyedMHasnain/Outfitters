@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <>
       {/* nav start */}
-      <div className="flex justify-between items-center fixed w-full z-10 h-12  border-2 border-black ">
+      <div className=" flex align-top justify-between  top-0 left-0  items-center fixed w-full z-10 h-12  ">
         <div className=" menu-icon ml-4 text-xl  text-black">
           <SideNavi />
         </div>
@@ -23,12 +23,7 @@ const Header = () => {
           <div className="absolute w-4 h-3 right-0  bottom-5 left-4 bg-red-500 rounded text-white  text-[10px]">
             <span className="ml-0.5 font-thin ">{items.length}</span>
           </div>
-          <NavLink
-            to="/Cart"
-            // className={({ isActive }) =>
-            //   `${isActive ? "  rounded-3xl" : "tetx-black "}`
-            // }
-          >
+          <NavLink to="/Cart">
             <LuShoppingCart className="w-6 h-6" />
           </NavLink>
         </div>

@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Home from './Pages/Home';
-
 import Services from './Pages/Services';
 import Contact from './Pages/Contact';
-
+import Chkoutform from './Pages/ChkoutForm';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Products from './Pages/Products';
@@ -35,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "Products",
         element: <Products/>,
+      },
+      {
+        path: "Chkout-Form",
+        element: <Chkoutform/>,
       },
     ],
   },
