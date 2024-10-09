@@ -1,6 +1,5 @@
 import React from "react";
 import Swipper from "../Components/Swipper";
-import Card from "../Components/Card";
 const products = [
   {
     title: "T-shirt",
@@ -43,12 +42,18 @@ const Home = () => {
   return (
     <>
       <div className="">
-        <Swipper  />
+        <Swipper />
       </div>
-      {
-        products.map
-      }
-  
+      <div className="flex bg-gray-400 h-60">
+        
+        {products.map((item, index) => {
+          return(
+          <div key={index} className="flex justify-center align-middle">
+            <h4 className="">{item.title}</h4>
+          </div>
+          )
+        })}
+      </div>
     </>
   );  
 };
