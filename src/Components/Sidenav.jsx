@@ -35,9 +35,14 @@ function SideNavi() {
   }, [isOpen]);
 
   return (
-    <div className="mr-1 text-blue-400">
-      <CiMenuFries onClick={openNav} />
-      <SideNav isOpen={isOpen} closeNav={closeNav} ref={sideNavRef} />
+    <div className="mr-1">
+      <CiMenuFries className="text-black" onClick={openNav} />
+      <SideNav
+        className=" text-blue-400"
+        isOpen={isOpen}
+        closeNav={closeNav}
+        ref={sideNavRef}
+      />
     </div>
   );
 }
@@ -48,37 +53,22 @@ const SideNav = React.forwardRef(({ isOpen, closeNav }, ref) => {
       ref={ref}
       className={`sidenav ${isOpen ? "open" : ""}`}
       style={isOpen ? { width: "250px" } : {}}>
-      <AiOutlineClose className="closebtn" onClick={closeNav} />
+      <AiOutlineClose
+        className="closebtn  text-green-500"
+        onClick={closeNav}
+      />
       <ul>
         <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `${isActive ? "text-red-400 rounded-3xl" : "text-black"}`
-            }>
-            Home
-          </NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
           <NavLink to="/Products">Products</NavLink>
         </li>
         <li>
-          <NavLink
-            className={({ isActive }) =>
-              `${isActive ? "text-red-400 rounded-3xl" : "text-black"}`
-            }
-            to="/Services">
-            Service
-          </NavLink>
+          <NavLink to="/Services">Service</NavLink>
         </li>
         <li>
-          <NavLink
-            className={({ isActive }) =>
-              `${isActive ? "text-red-400 rounded-3xl" : "text-black"}`
-            }
-            to="/Contact">
-            Contact
-          </NavLink>
+          <NavLink to="/Contact">Contact</NavLink>
         </li>
       </ul>
     </div>

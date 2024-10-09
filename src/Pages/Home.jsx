@@ -45,16 +45,10 @@ const Home = () => {
       <div className="">
         <Swipper  />
       </div>
-      <div className=" flex justify-around  flex-wrap p-8 ">
-        {
-          products.map((item, index) => (
-        
-            <div className={"flex justify-center gap-12 items-center flex-col  mt-4 max-[640px]:mr-5"}>
-              <Card products={item} />
-            </div>
-        
-        ))}
-      </div>
+      {
+        products.map
+      }
+  
     </>
   );  
 };

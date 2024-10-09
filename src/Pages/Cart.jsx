@@ -6,21 +6,22 @@ import { NavLink } from "react-router-dom";
 import { MdDeleteOutline } from "react-icons/md";
 
 const Cart = () => {
-    const dispatch = useDispatch();
-    const Product = useSelector((state)=>state.cart)
-    const handleremove = (id) => {
-      dispatch(remove({id}));
-    }; 
-     const handleIncrement = (id) => {
-       dispatch(increment({ id }));
-     };
+  const dispatch = useDispatch();
+  const Product = useSelector((state) => state.cart);
 
-     const handleDecrement = (id) => {
-       dispatch(decrement({ id })); 
-     };
+  const handleremove = (id) => {
+    dispatch(remove({ id }));
+  };
+  const handleIncrement = (id) => {
+    dispatch(increment({ id }));
+  };
 
-  const totalAmount = Object.values(Product).reduce(
-    (total, item) => total + item.price * item.quantity,
+  const handleDecrement = (id) => {
+    dispatch(decrement({ id }));
+  };
+
+  const totalAmount = Product.reduce(
+    (total, item) => total + (item.price * item.quantity || 0), // Ensure it's a number
     0
   );
 
@@ -73,14 +74,13 @@ const Cart = () => {
                     </button>
                   </div>
                 </div>
-
-                <div className="mt-4">
-                  <h3 className="text-xl font-bold text-black">
-                    Total: ${totalAmount.toFixed(2)}
-                  </h3>
-                </div>
               </div>
             ))}
+          </div>
+          <div className="mt-4">
+            <h3 className="text-xl font-bold text-black">
+              Total: ${totalAmount.toFixed(2)}
+            </h3>
           </div>
 
           <NavLink to="/Chkout-form" className=" ">
