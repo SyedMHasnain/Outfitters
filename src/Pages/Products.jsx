@@ -1,40 +1,36 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { add } from "../Store/cartSlice";
-  import { useDispatch } from "react-redux";
-import Loader from '../Components/Loader';
-// import TestingCard from '../Components/TestCard/TestingCard';
+import { useDispatch } from "react-redux";
+import Loader from "../Components/Loader";
 
- const Products = () => {
+const Products = () => {
   const [Loading, setLoading] = React.useState(true);
 
-   const [ product, setProduct ] =useState([])
+  const [product, setProduct] = useState([]);
 
-  //  Shortting api title 
-   const shorttilte = (name, maxLength) => {
-     return name.length > maxLength ? `${name.slice(0, maxLength)} ...` : name;
-   };
+  //  Shortting api title
+  const shorttilte = (name, maxLength) => {
+    return name.length > maxLength ? `${name.slice(0, maxLength)} ...` : name;
+  };
 
-   useEffect(()=>{
-    // feTCHED aPI In usE effect 
-    const fetchProduct = async ()=>{
-      const res = await fetch("https://fakestoreapi.com/products")
-      const data = await res.json()
-     
-      setProduct(data)
-      setLoading(false)
-
+  useEffect(() => {
+    // feTCHED aPI In usE effect
+    const fetchProduct = async () => {
+      const res = await fetch("https://fakestoreapi.com/products");
+      const data = await res.json();
+      console.log(data);
+      setProduct(data);
+      setLoading(false);
     };
-    fetchProduct()
-  }
-  ,[])
-  
-    const dispatch = useDispatch();
-    const handeladd = (product) => {
-      
-      dispatch(add(product));
-    };
+    fetchProduct();
+  }, []);
 
-  const maxNameLength = 20; 
+  const dispatch = useDispatch();
+  const handeladd = (product) => {
+    dispatch(add(product));
+  };
+
+  const maxNameLength = 20;
 
   return (
     <>
@@ -90,6 +86,6 @@ import Loader from '../Components/Loader';
       </div>
     </>
   );
-}
+};
 
-export default Products
+export default Products;

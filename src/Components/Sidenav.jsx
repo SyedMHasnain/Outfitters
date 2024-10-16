@@ -3,8 +3,12 @@ import "../index.css";
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 function SideNavi() {
+
+  
   const [isOpen, setIsOpen] = useState(false);
   const sideNavRef = useRef(null);
 
@@ -21,19 +25,18 @@ function SideNavi() {
       closeNav();
     }
   };
-
+  
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
-
+  
   return (
     <div className="mr-1">
       <CiMenuFries className="text-black" onClick={openNav} />
@@ -48,6 +51,7 @@ function SideNavi() {
 }
 
 const SideNav = React.forwardRef(({ isOpen, closeNav }, ref) => {
+  const Product = useSelector((state) => state.cart);
   return (
     <div
       ref={ref}
@@ -64,9 +68,12 @@ const SideNav = React.forwardRef(({ isOpen, closeNav }, ref) => {
         <li>
           <NavLink to="/Products">Products</NavLink>
         </li>
+        { Product.length > 0 ? (
         <li>
-          <NavLink to="/Services">Service</NavLink>
+          <NavLink to="/Cart">Cart</NavLink>
         </li>
+        ): null
+        }
         <li>
           <NavLink to="/Contact">Contact</NavLink>
         </li>

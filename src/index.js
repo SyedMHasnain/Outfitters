@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Home from './Pages/Home';
-import Services from './Pages/Services';
-import Contact from './Pages/Contact';
-import Chkoutform from './Pages/ChkoutForm';
+import Cart from './Pages/Cart';
+import Payment from './Pages/Payment';
+// import Chkoutform from './Pages/Cart/ChkoutForm';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Products from './Pages/Products';
-import Cart from './Pages/Cart';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,25 +20,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "contact",
-        element: <Contact/>,
-      },
-      {
-        path: "Services",
-        element: <Services/>,
+        path: "Payment",
+        element: <Payment/>,
       },
       {
         path: "Cart",
         element: <Cart/>,
       },
+    
       {
         path: "Products",
         element: <Products/>,
       },
-      {
-        path: "Chkout-Form",
-        element: <Chkoutform/>,
-      },
+   
     ],
   },
 ]);

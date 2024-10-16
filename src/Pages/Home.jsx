@@ -1,5 +1,7 @@
 import React from "react";
 import Swipper from "../Components/Swipper";
+import Card from "../Components/Card";
+
 const products = [
   {
     title: "T-shirt",
@@ -37,25 +39,30 @@ const products = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo accusantium eum, neque deserunt quisquam,",
   },
-]; 
+];
 const Home = () => {
   return (
     <>
       <div className="">
         <Swipper />
       </div>
-      <div className="flex bg-gray-400 h-60">
-        
-        {products.map((item, index) => {
-          return(
-          <div key={index} className="flex justify-center align-middle">
-            <h4 className="">{item.title}</h4>
-          </div>
-          )
-        })}
+      <div className="flex  flex-col ">
+        <h1 className="text-center text-4xl mt-10 font-montser">Products</h1>
+        <div className="flex flex-wrap  justify-center  mt-10   px-2 gap-4 ">
+          {products.map((product, index) => (
+            <Card
+              product={product}
+              title={product.title}
+              price={product.price}
+              img={product.image}
+              key={index}
+              description={product.description}
+            />
+          ))}
+        </div>
       </div>
     </>
-  );  
+  );
 };
 
 export default Home;

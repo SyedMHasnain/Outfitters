@@ -1,0 +1,12 @@
+.crediCard {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.rearIsVisible {
+    transform: rotateY(180deg);
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
